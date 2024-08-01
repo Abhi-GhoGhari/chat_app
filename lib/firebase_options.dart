@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCkTQqSU8DqWmWXRDz85vJR-d6IzeHviis',
-    appId: '1:922420393675:web:136f407d1c00f237698d4e',
-    messagingSenderId: '922420393675',
-    projectId: 'wv-authantication-app',
-    authDomain: 'wv-authantication-app.firebaseapp.com',
-    storageBucket: 'wv-authantication-app.appspot.com',
-    measurementId: 'G-QWMMNFBQSN',
+    apiKey: 'AIzaSyC1hNSM220GipVCEWKqv5ph6wEaCH3nxBw',
+    appId: '1:12118280772:web:3bc44922b70119f4c78a11',
+    messagingSenderId: '12118280772',
+    projectId: 'wv-chat-app',
+    authDomain: 'wv-chat-app.firebaseapp.com',
+    storageBucket: 'wv-chat-app.appspot.com',
+    measurementId: 'G-0E12FQH9NK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBhIJuIiCvwuPHa2SmRsWQa1V-6raDRuq4',
-    appId: '1:922420393675:android:37b4f58b8c4a1105698d4e',
-    messagingSenderId: '922420393675',
-    projectId: 'wv-authantication-app',
-    storageBucket: 'wv-authantication-app.appspot.com',
+    apiKey: 'AIzaSyDnSeabC-4geZAertNYn-yeg8sIJIZwIW8',
+    appId: '1:12118280772:android:bace2d13f32e1eabc78a11',
+    messagingSenderId: '12118280772',
+    projectId: 'wv-chat-app',
+    storageBucket: 'wv-chat-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDsWJaOeK0gI5azlV7uqTPHnmkokbVJKYY',
-    appId: '1:922420393675:ios:99fbe7bde79b2315698d4e',
-    messagingSenderId: '922420393675',
-    projectId: 'wv-authantication-app',
-    storageBucket: 'wv-authantication-app.appspot.com',
-    iosBundleId: 'com.example.authanticationApp',
+    apiKey: 'AIzaSyBycnRQyLbqizWXP6gVrPvbcBoaJXjv9Uk',
+    appId: '1:12118280772:ios:cfb521dee80fffbbc78a11',
+    messagingSenderId: '12118280772',
+    projectId: 'wv-chat-app',
+    storageBucket: 'wv-chat-app.appspot.com',
+    iosBundleId: 'com.example.chatApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDsWJaOeK0gI5azlV7uqTPHnmkokbVJKYY',
-    appId: '1:922420393675:ios:99fbe7bde79b2315698d4e',
-    messagingSenderId: '922420393675',
-    projectId: 'wv-authantication-app',
-    storageBucket: 'wv-authantication-app.appspot.com',
-    iosBundleId: 'com.example.authanticationApp',
+    apiKey: 'AIzaSyBycnRQyLbqizWXP6gVrPvbcBoaJXjv9Uk',
+    appId: '1:12118280772:ios:cfb521dee80fffbbc78a11',
+    messagingSenderId: '12118280772',
+    projectId: 'wv-chat-app',
+    storageBucket: 'wv-chat-app.appspot.com',
+    iosBundleId: 'com.example.chatApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCkTQqSU8DqWmWXRDz85vJR-d6IzeHviis',
-    appId: '1:922420393675:web:1b4276b6ce7b407a698d4e',
-    messagingSenderId: '922420393675',
-    projectId: 'wv-authantication-app',
-    authDomain: 'wv-authantication-app.firebaseapp.com',
-    storageBucket: 'wv-authantication-app.appspot.com',
-    measurementId: 'G-ERB1T9CNSG',
+    apiKey: 'AIzaSyC1hNSM220GipVCEWKqv5ph6wEaCH3nxBw',
+    appId: '1:12118280772:web:0b8a422891c2cf41c78a11',
+    messagingSenderId: '12118280772',
+    projectId: 'wv-chat-app',
+    authDomain: 'wv-chat-app.firebaseapp.com',
+    storageBucket: 'wv-chat-app.appspot.com',
+    measurementId: 'G-64GS1DCR0H',
   );
 }

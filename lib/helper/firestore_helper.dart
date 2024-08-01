@@ -15,7 +15,7 @@ class FirestoreHelper {
   String collectionPath = "Todo";
   String userCollection = "allUser";
 
-  late UserModal currentUser;
+  UserModal? currentUser;
 
   Future<void> addUser({required User user}) async {
     Map<String, dynamic> data = {
@@ -45,7 +45,7 @@ class FirestoreHelper {
   Future<void> addTodo({required TodoModal todoModal}) async {
     await fireStore
         .collection(userCollection)
-        .doc(currentUser.uid)
+        .doc(currentUser?.uid)
         .collection(collectionPath)
         .doc(todoModal.id)
         .set(todoModal.toMap);
@@ -55,7 +55,7 @@ class FirestoreHelper {
     List<TodoModal> allTodo = [];
     QuerySnapshot<Map<String, dynamic>> snapshot = await fireStore
         .collection(userCollection)
-        .doc(currentUser.uid)
+        .doc(currentUser?.uid)
         .collection(collectionPath)
         .get();
 
@@ -70,7 +70,7 @@ class FirestoreHelper {
     Stream<QuerySnapshot<Map<String, dynamic>>> getStream() {
       return fireStore
           .collection(userCollection)
-          .doc(currentUser.uid)
+          .doc(currentUser?.uid)
           .collection(collectionPath)
           .snapshots();
     }
@@ -87,7 +87,7 @@ class FirestoreHelper {
     Future<void> addFrind({required UserModal userModal}) async {
       await fireStore
           .collection(userCollection)
-          .doc(currentUser.uid)
+          .doc(currentUser?.uid)
           .collection('friends')
           .doc(userModal.uid)
           .set(userModal.toMap)
@@ -97,15 +97,15 @@ class FirestoreHelper {
           .collection(userCollection)
           .doc(userModal.uid)
           .collection('friends')
-          .doc(currentUser.uid)
-          .set(currentUser.toMap);
+          .doc(currentUser?.uid)
+          .set(currentUser!.toMap);
     }
 
     Future<List<UserModal>> getFriend() async {
       List<UserModal> friends = [];
       friends = (await fireStore
               .collection(userCollection)
-              .doc(currentUser.uid)
+              .doc(currentUser?.uid)
               .collection('friends')
               .get())
           .docs
@@ -118,7 +118,7 @@ class FirestoreHelper {
     Stream<QuerySnapshot<Map<String, dynamic>>> getfriendStream() {
       return fireStore
           .collection(userCollection)
-          .doc(currentUser.uid)
+          .doc(currentUser?.uid)
           .collection('friends')
           .snapshots();
     }

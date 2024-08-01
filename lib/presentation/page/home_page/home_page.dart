@@ -10,27 +10,37 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                foregroundImage: NetworkImage(FirestoreHelper.instance.currentUser.photoUrl),
+                foregroundImage: NetworkImage(
+                  FirestoreHelper.instance.currentUser?.photoUrl ??
+                      "https://seds.ca/wp-content/uploads/2019/05/user-placeholder.png",
+                ),
               ),
               accountName: Text(
-                FirestoreHelper.instance.currentUser.displayname
+                FirestoreHelper.instance.currentUser?.displayname ?? "guest",
               ),
-              accountEmail: Text(FirestoreHelper.instance.currentUser.email),
+              accountEmail: Text(
+                FirestoreHelper.instance.currentUser?.email ??
+                    "Guest@gmail.com",
+              ),
             ),
             ListTile(
               leading: const Icon(Icons.people_alt_rounded),
               title: const Text("Friends"),
-              trailing: IconButton(onPressed: (){}, icon: const Icon(Icons.people_alt_rounded),),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.people_alt_rounded),
+              ),
             ),
           ],
         ),
       ),
       appBar: AppBar(
         title:
-            Text(AuthHelper.instance.auth.currentUser!.displayName ?? "NULL"),
+            Text(AuthHelper.instance.auth.currentUser!.displayName ?? "Guest"),
         actions: [
           IconButton(
             onPressed: () {
@@ -48,6 +58,19 @@ class HomePage extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.logout),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.instance.notificationpage);
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   const SnackBar(
+              //     content: Text("LogOut"),
+              //     backgroundColor: Colors.black,
+              //     behavior: SnackBarBehavior.floating,
+              //   ),
+              // );
+            },
+            icon: const Icon(Icons.notifications_active),
           ),
         ],
       ),

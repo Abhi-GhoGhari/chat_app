@@ -23,7 +23,7 @@ class AlluserPage extends StatelessWidget {
                         .toList() ??
                     [];
                 allUser.removeWhere((element) =>
-                    element.uid == FirestoreHelper.instance.currentUser.uid);
+                    element.uid == FirestoreHelper.instance.currentUser?.uid);
               }
               return ListView.separated(
                 separatorBuilder: (c, i) => const Divider(),

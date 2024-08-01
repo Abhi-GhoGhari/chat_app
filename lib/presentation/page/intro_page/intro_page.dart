@@ -1,6 +1,5 @@
 import '../../../heders.dart';
 import '../../../helper/authhelper.dart';
-import '../../../utils/routes.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -92,8 +91,8 @@ class IntroPage extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               GestureDetector(
-                onTap: ()  {
-                  User? user =  AuthHelper.instance.anonymousLogin();
+                onTap: () async {
+                  User? user = await AuthHelper.instance.anonymousLogin();
 
                   if (user != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -104,8 +103,7 @@ class IntroPage extends StatelessWidget {
                       ),
                     );
 
-                    var pushReplacementNamed =
-                        Navigator.of(context).pushReplacementNamed('home_page');
+                    Navigator.of(context).pushReplacementNamed('home_page');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
@@ -142,12 +140,6 @@ class IntroPage extends StatelessWidget {
           ),
         ),
       ),
-      // Text(
-      //   "Everything is simple with Chat app.",
-      // ),
-      // Container(
-      //
-      // ),
     );
   }
 }

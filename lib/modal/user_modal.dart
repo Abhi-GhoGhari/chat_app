@@ -26,6 +26,7 @@ class UserModal {
         'displayName': displayname ?? "DEMO User",
         'email': email ?? "DEMO@Email",
         'phoneNumber': phoneNumber ?? "NO NUMBER",
-        'photoUrl': photoUrl ?? "https://i.stack.imgur.com/l60Hf.png",
+        'photoUrl': photoUrl ??
+            "https://seds.ca/wp-content/uploads/2019/05/user-placeholder.png",
       };
 }

@@ -121,28 +121,28 @@ class LoginPage extends StatelessWidget {
                                         behavior: SnackBarBehavior.floating,
                                       ),
                                     );
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text("Register Failed!!!"),
-                                        backgroundColor: Colors.red,
-                                        behavior: SnackBarBehavior.floating,
-                                      ),
-                                    );
                                   }
+                                  // else {
+                                  //   ScaffoldMessenger.of(context).showSnackBar(
+                                  //     const SnackBar(
+                                  //       content: Text("Register Failed!!!"),
+                                  //       backgroundColor: Colors.red,
+                                  //       behavior: SnackBarBehavior.floating,
+                                  //     ),
+                                  //   );
+                                  // }
                                 },
                                 child: const Text("Register"),
                               ),
                               ElevatedButton(
                                 onPressed: () async {
-                                  User? user =
-                                      await AuthHelper.instance.register(
+                                  User? user = await AuthHelper.instance.signIn(
                                     email: emailController.text,
                                     password: passwordController.text,
                                   );
 
-                                  if (User != null) {
-                                    await FirestoreHelper.instance.getUser();
+                                  if (user != null) {
+                                    FirestoreHelper.instance.getUser();
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                         content: Text("SignIn Successfully"),
