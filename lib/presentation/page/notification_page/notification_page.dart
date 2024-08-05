@@ -10,7 +10,7 @@ class NotificationPage extends StatelessWidget {
         title: const Text("Notofication Page"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Center(
           child: ElevatedButton(
             onPressed: () {},

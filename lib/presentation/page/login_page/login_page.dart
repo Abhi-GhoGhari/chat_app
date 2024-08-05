@@ -194,23 +194,35 @@ class LoginPage extends StatelessWidget {
                                           User? user = credential.user;
 
                                           if (user != null) {
-                                            await FirestoreHelper.instance
-                                                .addUser(user: user);
-                                            await FirestoreHelper.instance
-                                                .getUser();
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              const SnackBar(
-                                                content:
-                                                    Text("SignIn Successfully"),
-                                                backgroundColor: Colors.green,
-                                                behavior:
-                                                    SnackBarBehavior.floating,
-                                              ),
-                                            );
-                                            Navigator.pushReplacementNamed(
-                                                context,
-                                                AppRoutes.instance.homepage);
+                                            try {
+                                              await FirestoreHelper.instance
+                                                  .addUser(user: user);
+                                              await FirestoreHelper.instance
+                                                  .getUser();
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      "SignIn Successfully"),
+                                                  backgroundColor: Colors.green,
+                                                  behavior:
+                                                      SnackBarBehavior.floating,
+                                                ),
+                                              );
+                                              Navigator.pushReplacementNamed(
+                                                  context,
+                                                  AppRoutes.instance.homepage);
+                                            } catch (e) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text("Error: $e"),
+                                                  backgroundColor: Colors.red,
+                                                  behavior:
+                                                      SnackBarBehavior.floating,
+                                                ),
+                                              );
+                                            }
                                           } else {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
@@ -223,6 +235,36 @@ class LoginPage extends StatelessWidget {
                                               ),
                                             );
                                           }
+                                          // if (user != null) {
+                                          //   await FirestoreHelper.instance
+                                          //       .addUser(user: user);
+                                          //   await FirestoreHelper.instance
+                                          //       .getUser();
+                                          //   ScaffoldMessenger.of(context)
+                                          //       .showSnackBar(
+                                          //     const SnackBar(
+                                          //       content:
+                                          //           Text("SignIn Successfully"),
+                                          //       backgroundColor: Colors.green,
+                                          //       behavior:
+                                          //           SnackBarBehavior.floating,
+                                          //     ),
+                                          //   );
+                                          //   Navigator.pushReplacementNamed(
+                                          //       context,
+                                          //       AppRoutes.instance.homepage);
+                                          // } else {
+                                          //   ScaffoldMessenger.of(context)
+                                          //       .showSnackBar(
+                                          //     const SnackBar(
+                                          //       content:
+                                          //           Text("LogIn Failed!!!"),
+                                          //       backgroundColor: Colors.red,
+                                          //       behavior:
+                                          //           SnackBarBehavior.floating,
+                                          //     ),
+                                          //   );
+                                          // }
                                         },
                                         child: Container(
                                           height: size.height * 0.03,

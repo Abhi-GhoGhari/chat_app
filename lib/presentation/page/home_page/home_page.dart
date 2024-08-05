@@ -31,7 +31,12 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.people_alt_rounded),
               title: const Text("Friends"),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.instance.friendspage,
+                  );
+                },
                 icon: const Icon(Icons.people_alt_rounded),
               ),
             ),
