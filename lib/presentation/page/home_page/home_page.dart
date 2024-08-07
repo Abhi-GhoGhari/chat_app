@@ -8,6 +8,36 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_alt_rounded),
+            label: "AllFriends",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: "Chat",
+          ),
+        ],
+        currentIndex: 0,
+        onTap: (i) {
+          if (i == 1) {
+            Navigator.pushNamed(
+              context,
+              AppRoutes.instance.allfriendspage,
+            );
+          } else {
+            Navigator.pushNamed(
+              context,
+              AppRoutes.instance.alluserpage,
+            );
+          }
+        },
+      ),
       drawer: Drawer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,16 +58,37 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.people_alt_rounded),
-              title: const Text("Friends"),
+              // leading: const Icon(Icons.people_alt_rounded),
+              title: const Text("AllUsers"),
               trailing: IconButton(
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    AppRoutes.instance.friendspage,
+                    AppRoutes.instance.alluserpage,
                   );
                 },
                 icon: const Icon(Icons.people_alt_rounded),
+              ),
+            ),
+            ListTile(
+              // leading: const Icon(Icons.people_alt_rounded),
+              title: const Text("Logout"),
+              trailing: IconButton(
+                onPressed: () {
+                  AuthHelper.instance.logOut().then(
+                    (value) {
+                      Navigator.of(context).pushReplacementNamed('/');
+                    },
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("LogOut"),
+                      backgroundColor: Colors.black,
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.logout),
               ),
             ),
           ],
@@ -47,23 +98,6 @@ class HomePage extends StatelessWidget {
         title:
             Text(AuthHelper.instance.auth.currentUser!.displayName ?? "Guest"),
         actions: [
-          IconButton(
-            onPressed: () {
-              AuthHelper.instance.logOut().then(
-                (value) {
-                  Navigator.of(context).pushReplacementNamed('/');
-                },
-              );
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("LogOut"),
-                  backgroundColor: Colors.black,
-                  behavior: SnackBarBehavior.floating,
-                ),
-              );
-            },
-            icon: const Icon(Icons.logout),
-          ),
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, AppRoutes.instance.notificationpage);
